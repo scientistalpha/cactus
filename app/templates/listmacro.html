@@ -1,0 +1,21 @@
+{% macro ls(tasks) %}
+    {% for (id, task) in tasks.items() %}
+        <tr>
+            <td>{{ task['text'] }}</td>
+            <td>{{ task['description'] }}</td>
+            <td>{{ task['due'] }}</td>
+            <td>
+                {% if task['done'] %}
+                    <a class="btn btn-success btn-sm" href={{ url_for('toggle', id=id) }}>Done</a>
+                {% else %}
+                    <a class="btn btn-danger btn-sm" href={{ url_for('toggle', id=id) }}>To do</a>
+                {% endif %}
+            </td>
+            <td>
+                <a class="btn btn-info btn-sm" href={{ url_for('edit', id=id) }}>Edit</a>
+                <a class="btn btn-warning btn-sm" href={{ url_for('delete', id=id) }}>Delete</a>
+            </td>
+
+        </tr>
+    {% endfor %}
+{% endmacro %}

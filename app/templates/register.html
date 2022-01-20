@@ -1,0 +1,58 @@
+{% extends "theme.html" %}
+{% block register %}active{% endblock %}
+{% block content %}
+
+    <h2>Register</h2>
+
+    <div class="row d-flex justify-content-center">
+        <form class="col-4" method="POST" action="/register" novalidate>
+            {{ form.csrf_token }} <!-- {{ form.hidden_tag() }} -->
+
+            <div class="form-group">
+                {{ form.first_name(placeholder=form.first_name.label.text, class="form-control") }}
+                {% if form.first_name.errors %} {% for message in form.first_name.errors %}
+                    <small id="emailHelp" class="form-text text-info">{{ message }}</small>
+                {% endfor %}{% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.last_name(placeholder=form.last_name.label.text, class="form-control") }}
+                {% if form.last_name.errors %} {% for message in form.last_name.errors %}
+                    <small id="emailHelp" class="form-text text-info">{{ message }}</small>
+                {% endfor %}{% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.birth(placeholder=form.birth.label.text, class="form-control") }}
+                {% if form.birth.errors %} {% for message in form.birth.errors %}
+                    <small id="emailHelp" class="form-text text-info">{{ message }}</small>
+                {% endfor %}{% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.username(placeholder=form.username.label.text, class="form-control") }}
+                {% if form.username.errors %} {% for message in form.username.errors %}
+                    <small id="emailHelp" class="form-text text-info">{{ message }}</small>
+                {% endfor %}{% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.password(placeholder=form.password.label.text, class="form-control") }}
+                {% if form.password.errors %} {% for message in form.password.errors %}
+                    <small id="emailHelp" class="form-text text-info">{{ message }}</small>
+                {% endfor %}{% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.password2(placeholder=form.password2.label.text, class="form-control") }}
+                {% if form.password2.errors %} {% for message in form.password2.errors %}
+                    <small id="emailHelp" class="form-text text-info">{{ message }}</small>
+                {% endfor %}{% endif %}
+            </div>
+
+            <div class="row d-flex justify-content-center">
+                {{ form.submit(class="btn btn-primary") }}
+            </div>
+        </form>
+    </div>
+{% endblock %}
