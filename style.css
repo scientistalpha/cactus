@@ -1,0 +1,55 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+  animation: fadein 2s;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+h1 {
+  margin: 0;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav li {
+  margin-right: 20px;
+}
+
+nav a {
+  color: #333;
+  text-decoration: none;
+  font-size: 18px;
+  transition: all 0.2s;
+}
+
+nav a:hover {
+  color: #ccc;
+}
+
+nav a.active {
+  color: #e5a623;
+}
+
+main {
